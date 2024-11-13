@@ -3,7 +3,7 @@ let points = [];
 let particles = [];
 
 function preload() {
-  font = loadFont('assets/Roboto-Black.ttf');
+  font = loadFont('ZenAntiqueSoft-Regular.ttf');
 }
 
 function setup() {
