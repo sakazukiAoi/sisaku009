@@ -45,7 +45,7 @@ class Particle {
   update() {
     // 速度に基づいて位置を更新
     this.pos.add(this.vel);
-    this.alpha -= 5; // 徐々に透明になる
+    //this.alpha -= 5; // 徐々に透明になる
   }
   
   show() {
