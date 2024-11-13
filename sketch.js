@@ -26,9 +26,8 @@ function setup() {
 function draw() {
   background(255);
   
-  // 粒子を更新して描画
+  // 静的な粒子を描画
   for (let i = 0; i < particles.length; i++) {
-    particles[i].update();
     particles[i].show();
   }
 }
@@ -36,21 +35,16 @@ function draw() {
 // 粒子クラス
 class Particle {
   constructor(x, y) {
-    this.pos = createVector(x, y);   // 初期位置
-    this.vel = p5.Vector.random2D(); // ランダムな方向への速度
-    this.vel.mult(random(1, 3));     // 拡散速度
-    this.alpha = 255;                // 透明度
-  }
-  
-  update() {
-    // 速度に基づいて位置を更新
-    this.pos.add(this.vel);
-    //this.alpha -= 5; // 徐々に透明になる
+    // ランダムな範囲で初期位置を少しだけずらして配置
+    this.pos = createVector(
+      x + random(-5, 5), // x方向に-5から5ピクセルずらす
+      y + random(-5, 5)  // y方向に-5から5ピクセルずらす
+    );
   }
   
   show() {
     noStroke();
-    fill(0, this.alpha);
+    fill(0);
     ellipse(this.pos.x, this.pos.y, 4); // 粒子を円で描画
   }
 }
